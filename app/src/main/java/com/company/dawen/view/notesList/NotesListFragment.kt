@@ -10,10 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.company.dawen.R
-import com.company.dawen.model.data.repositories.NoteRepository
 import com.company.dawen.model.data.roomDB.Note
 import com.company.dawen.databinding.FragmentNotesListBinding
-import com.company.dawen.utils.AppTheme
 import com.company.dawen.utils.NavigationType
 import com.company.dawen.utils.UiEvents
 import com.company.dawen.view.adapters.NotesListAdapter
@@ -24,19 +22,11 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class NotesListFragment : Fragment(R.layout.fragment_notes_list) {
-    @Inject
-    lateinit var repository: NoteRepository
 
-    private lateinit var appTheme: AppTheme
     private lateinit var binding: FragmentNotesListBinding
     private val notesViewModel by viewModels<NotesListViewModel>()
     private lateinit var notesListAdapter: NotesListAdapter
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        appTheme = AppTheme(requireContext())
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
