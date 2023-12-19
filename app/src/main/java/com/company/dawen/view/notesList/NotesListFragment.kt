@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.company.dawen.R
-import com.company.dawen.model.data.roomDB.Note
+import com.company.dawen.model.source.local.Note
 import com.company.dawen.databinding.FragmentNotesListBinding
 import com.company.dawen.utils.NavigationType
 import com.company.dawen.utils.UiEvents
@@ -18,7 +18,6 @@ import com.company.dawen.view.adapters.NotesListAdapter
 import com.company.dawen.viewModel.NotesListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class NotesListFragment : Fragment(R.layout.fragment_notes_list) {

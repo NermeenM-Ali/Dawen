@@ -1,6 +1,6 @@
 package com.company.dawen.view.notesList
 
-import com.company.dawen.model.data.roomDB.Note
+import com.company.dawen.model.source.local.Note
 
 sealed class NoteListEvents {
     data object OnAddNoteClicked : NoteListEvents()

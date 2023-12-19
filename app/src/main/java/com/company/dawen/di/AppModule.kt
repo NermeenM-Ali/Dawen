@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.company.dawen.model.repositories.NoteRepository
 import com.company.dawen.model.repositories.NoteRepositoryImpl
-import com.company.dawen.model.data.roomDB.NoteDatabase
+import com.company.dawen.model.source.local.NoteDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

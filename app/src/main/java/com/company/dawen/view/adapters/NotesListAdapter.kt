@@ -9,7 +9,7 @@ import android.widget.ToggleButton
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.company.dawen.R
-import com.company.dawen.model.data.roomDB.Note
+import com.company.dawen.model.source.local.Note
 import com.company.dawen.view.notesList.NoteListEvents
 import com.company.dawen.viewModel.NotesListViewModel
 

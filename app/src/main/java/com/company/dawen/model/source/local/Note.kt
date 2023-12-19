@@ -1,4 +1,4 @@
-package com.company.dawen.model.data.roomDB
+package com.company.dawen.model.source.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

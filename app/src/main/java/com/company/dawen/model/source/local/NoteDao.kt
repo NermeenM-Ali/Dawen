@@ -1,4 +1,4 @@
-package com.company.dawen.model.data.roomDB
+package com.company.dawen.model.source.local
 
 import androidx.room.Dao
 import androidx.room.Delete

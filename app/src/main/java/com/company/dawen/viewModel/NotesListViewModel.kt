@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.company.dawen.model.repositories.NoteRepository
-import com.company.dawen.model.data.roomDB.Note
+import com.company.dawen.model.source.local.Note
 import com.company.dawen.utils.NavigationType
 import com.company.dawen.utils.UiEvents
 import com.company.dawen.view.notesList.NoteListEvents

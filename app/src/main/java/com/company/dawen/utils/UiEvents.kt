@@ -1,6 +1,6 @@
 package com.company.dawen.utils
 
-import com.company.dawen.model.data.roomDB.Note
+import com.company.dawen.model.source.local.Note
 
 
 enum class NavigationType {

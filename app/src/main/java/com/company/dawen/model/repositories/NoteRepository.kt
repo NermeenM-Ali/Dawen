@@ -1,6 +1,6 @@
 package com.company.dawen.model.repositories
 
-import com.company.dawen.model.data.roomDB.Note
+import com.company.dawen.model.source.local.Note
 import kotlinx.coroutines.flow.Flow
 
 interface NoteRepository {
