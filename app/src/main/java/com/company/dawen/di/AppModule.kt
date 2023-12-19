@@ -2,8 +2,8 @@ package com.company.dawen.di
 
 import android.app.Application
 import androidx.room.Room
-import com.company.dawen.model.data.repositories.NoteRepository
-import com.company.dawen.model.data.repositories.NoteRepositoryImpl
+import com.company.dawen.model.repositories.NoteRepository
+import com.company.dawen.model.repositories.NoteRepositoryImpl
 import com.company.dawen.model.data.roomDB.NoteDatabase
 import dagger.Module
 import dagger.Provides

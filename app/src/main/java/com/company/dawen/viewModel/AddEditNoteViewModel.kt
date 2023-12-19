@@ -3,7 +3,7 @@ package com.company.dawen.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.company.dawen.R
-import com.company.dawen.model.data.repositories.NoteRepository
+import com.company.dawen.model.repositories.NoteRepository
 import com.company.dawen.model.data.roomDB.Note
 import com.company.dawen.utils.UiEvents
 import com.company.dawen.view.addEditNote.AddEditNoteEvents

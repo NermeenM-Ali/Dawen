@@ -1,4 +1,4 @@
-package com.company.dawen.model.data.repositories
+package com.company.dawen.model.repositories
 
 import com.company.dawen.model.data.roomDB.Note
 import kotlinx.coroutines.flow.Flow
