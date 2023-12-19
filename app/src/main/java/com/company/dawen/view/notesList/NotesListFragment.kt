@@ -48,26 +48,13 @@ class NotesListFragment : Fragment(R.layout.fragment_notes_list) {
             addNote.setOnClickListener {
                 notesViewModel.onEvent(NoteListEvents.OnNoteClicked(-1))
             }
-//            modeBtn.setOnCheckedChangeListener { _, isChecked ->
-//                notesViewModel.onEvent(NoteListEvents.OnSwitchUiModeClicked(isChecked))
-//            }
 
         }
-//        handleInitialModeBtnIcon()
         handleRecyclerView()
         handleUiEvents()
 
     }
 
-//    private fun handleInitialModeBtnIcon() {
-//        lifecycleScope.launch {
-//            if (appTheme.isDarkModeEnabled.first()) {
-//                binding.modeBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.light, 0, 0)
-//            } else {
-//                binding.modeBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.dark, 0, 0)
-//            }
-//        }
-//    }
 
 
     private fun handleRecyclerView() {
@@ -143,25 +130,6 @@ class NotesListFragment : Fragment(R.layout.fragment_notes_list) {
                         showDeletePopup(event.note, event.notePosition)
                     }
 
-//                    is UiEvents.SwitchMode -> {
-//                        appTheme.setDarkModeEnabled(event.isEnabled)
-//                        if (event.isEnabled) {
-//                            binding.modeBtn.setCompoundDrawablesWithIntrinsicBounds(
-//                                0,
-//                                R.drawable.light,
-//                                0,
-//                                0
-//                            )
-//                        } else {
-//                            binding.modeBtn.setCompoundDrawablesWithIntrinsicBounds(
-//                                0,
-//                                R.drawable.dark,
-//                                0,
-//                                0
-//                            )
-//                        }
-//                    }
-
                     else -> Unit
                 }
             }
@@ -193,7 +161,7 @@ class NotesListFragment : Fragment(R.layout.fragment_notes_list) {
             type = "text/plain"
             putExtra(
                 Intent.EXTRA_TEXT,
-                "Title: ${note.noteTitle}\nDescription: ${note.noteDescription}"
+                resources.getString(R.string.share_message, note.noteTitle, note.noteDescription)
             )
             startActivity(this)
         }
