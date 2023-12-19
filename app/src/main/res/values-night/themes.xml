@@ -1,0 +1,44 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Dawen.Dark" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowBackground">@color/background</item>
+        <item name="colorPrimaryDark">@color/statusBarColor</item>
+    </style>
+
+<!--    <style name="Theme.SimpleNotes.Dark" parent="Base.Theme.SimpleNotes_Dark" />-->
+
+
+    <style name="CustomAlertDialogStyle" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="materialAlertDialogTitleTextStyle">@style/CustomAlertDialogTitle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/CustomAlertDialogMessage</item>
+        <item name="colorPrimary">@color/secondaryColor</item>
+        <item name="colorSurface">@color/black</item>
+        <item name="android:background">@color/black</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item> <!-- your custom positive button style-->
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button</item> <!-- your custom negtive button style-->
+    </style>
+
+
+
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textAppearance">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/accentColor</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+
+    <style name="CustomAlertDialogTitle" parent="Widget.MaterialComponents.Button.TextButton">
+        <!-- Button text color -->
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="CustomAlertDialogMessage" parent="Widget.MaterialComponents.Button.TextButton">
+        <!-- Button text color -->
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+</resources>

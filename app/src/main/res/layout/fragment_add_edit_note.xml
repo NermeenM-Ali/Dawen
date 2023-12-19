@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".view.addEditNote.AddEditNoteFragment">
+
+    <ImageButton
+        android:id="@+id/back_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/transparent_btn"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/back_button" />
+
+
+    <ImageButton
+        android:id="@+id/save_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/transparent_btn"
+        android:src="@drawable/ic_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/save_button" />
+
+    <EditText
+        android:id="@+id/addEdit_note_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:hint="@string/title"
+        android:lines="2"
+        android:scrollHorizontally="false"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/placeholderTextColor"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_btn"
+        android:inputType="textPersonName" />
+
+
+    <EditText
+        android:id="@+id/addEdit_note_description"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="start|top"
+        android:hint="@string/type_something"
+        android:inputType="textMultiLine"
+        android:lines="20"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/placeholderTextColor"
+        android:textSize="16sp"
+        app:flow_verticalAlign="top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addEdit_note_title" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
