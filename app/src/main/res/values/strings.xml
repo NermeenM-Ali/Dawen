@@ -9,7 +9,7 @@
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
     <string name="delete_note">Delete Note</string>
-    <string name="delete_note_message">Are you sure you want to delete %s note?</string>
+    <string name="delete_note_message">Are you sure you want to delete %s ?</string>
     <string name="title_required">You can\'t create or edit note with empty title</string>
     <string name="start_to_add_notes">Start to add Notes</string>
     <string name="share_button">Share Button</string>
