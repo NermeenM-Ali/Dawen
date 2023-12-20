@@ -1,8 +1,8 @@
 package com.company.dawen.view.addEditNote
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -28,55 +28,31 @@ class AddEditNoteFragment : Fragment(R.layout.fragment_add_edit_note) {
 
         // Get the noteId from arguments
         val noteId = args.noteId
-
         addEditNoteViewModel.fetchNoteById(noteId)
-
-        fillInputsWithNoteData()
 
         binding.apply {
             backBtn.setOnClickListener { addEditNoteViewModel.onEvent(AddEditNoteEvents.OnBackClicked) }
-            saveBtn.setOnClickListener { addEditNoteViewModel.onEvent(AddEditNoteEvents.OnSaveClicked) }
+            saveBtn.setOnClickListener { addEditNoteViewModel.onEvent(AddEditNoteEvents.OnSaveClicked(addEditNoteTitle.text.toString(), addEditNoteDescription.text.toString())) }
         }
 
-        handleChangingInputs()
+        fillInputsWithNoteData()
         handleUiEvents()
     }
 
     private fun fillInputsWithNoteData() {
         lifecycleScope.launch {
-            addEditNoteViewModel.title.collect { title -> binding.addEditNoteTitle.setText(title) }
+            addEditNoteViewModel.noteToEdit.collect { note -> binding.addEditNoteTitle.setText(note.noteTitle) }
 
         }
         lifecycleScope.launch {
-            addEditNoteViewModel.description.collect { description ->
+            addEditNoteViewModel.noteToEdit.collect { note ->
                 binding.addEditNoteDescription.setText(
-                    description
+                    note.noteDescription
                 )
             }
         }
     }
 
-    private fun handleChangingInputs() {
-        binding.apply {
-            addEditNoteTitle.doOnTextChanged { text, _, _, _ ->
-                addEditNoteViewModel.onEvent(AddEditNoteEvents.OnTitleChange(title = text.toString()))
-                // to keep cursor at the end of text
-                if (text != null) {
-                    addEditNoteTitle.setSelection(text.length)
-                }
-            }
-
-            addEditNoteDescription.doOnTextChanged { text, _, _, _ ->
-                addEditNoteViewModel.onEvent(AddEditNoteEvents.OnDescriptionChange(description = text.toString()))
-                // to keep cursor at the end of text
-                if (text != null) {
-                    addEditNoteDescription.setSelection(text.length)
-                }
-            }
-
-        }
-
-    }
 
     private fun handleUiEvents() {
         lifecycleScope.launch {

@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="@string/save_button" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/addEdit_note_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

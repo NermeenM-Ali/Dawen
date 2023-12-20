@@ -35,7 +35,7 @@ class NotesListFragment : Fragment(R.layout.fragment_notes_list) {
 
         binding.apply {
             addNote.setOnClickListener {
-                notesViewModel.onEvent(NoteListEvents.OnNoteClicked(-1))
+                notesViewModel.onEvent(NoteListEvents.OnAddNoteClicked)
             }
 
         }

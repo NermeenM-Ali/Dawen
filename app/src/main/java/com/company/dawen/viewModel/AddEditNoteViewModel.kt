@@ -1,5 +1,6 @@
 package com.company.dawen.viewModel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.company.dawen.R
@@ -19,13 +20,8 @@ class AddEditNoteViewModel @Inject constructor(
     private val repository: NoteRepository,
 ) : ViewModel() {
     private var noteId: Int = -1
-    private lateinit var noteToEdit: Note
-
-
-    var title = MutableStateFlow("")
-        private set
-
-    var description = MutableStateFlow("")
+    var noteToEdit: MutableStateFlow<Note> =
+        MutableStateFlow(Note(noteTitle = "", noteDescription = "", isFavourite = false))
         private set
 
 
@@ -37,9 +33,7 @@ class AddEditNoteViewModel @Inject constructor(
         viewModelScope.launch {
             if (noteId != -1) {
                 val note = repository.getNoteById(noteId)
-                title.value = note.noteTitle
-                description.value = note.noteDescription
-                noteToEdit = note
+                noteToEdit.value = note
             }
         }
     }
@@ -47,27 +41,18 @@ class AddEditNoteViewModel @Inject constructor(
     fun onEvent(event: AddEditNoteEvents) {
         when (event) {
 
-            is AddEditNoteEvents.OnTitleChange -> {
-                title.value = event.title
-            }
-
-            is AddEditNoteEvents.OnDescriptionChange -> {
-                description.value = event.description
-            }
-
             is AddEditNoteEvents.OnBackClicked -> {
                 sendUiEvent(UiEvents.PopStack)
             }
 
             is AddEditNoteEvents.OnSaveClicked -> {
                 if (noteId == -1) {
-                    addNote()
+                    addNote(event.noteTitle, event.noteDescription)
                 } else {
-                    editNote()
+                    editNote(event.noteTitle, event.noteDescription)
                 }
 
             }
-
 
         }
     }
@@ -77,15 +62,15 @@ class AddEditNoteViewModel @Inject constructor(
         viewModelScope.launch { _uiEvent.send((event)) }
     }
 
-    private fun addNote() {
-        if (title.value.isEmpty()) {
+    private fun addNote(noteTitle: String, noteDescription: String) {
+        if (noteTitle.isEmpty()) {
             sendUiEvent(UiEvents.ShowSnackBar(R.string.title_required))
         } else {
             viewModelScope.launch {
                 repository.insertNote(
                     Note(
-                        noteTitle = title.value,
-                        noteDescription = description.value,
+                        noteTitle = noteTitle,
+                        noteDescription = noteDescription,
                         isFavourite = false
                     )
                 )
@@ -95,18 +80,18 @@ class AddEditNoteViewModel @Inject constructor(
         }
     }
 
-    private fun editNote() {
-        if (title.value.isEmpty()) {
+    private fun editNote(noteTitle: String, noteDescription: String) {
+        if (noteTitle.isEmpty()) {
             sendUiEvent(UiEvents.ShowSnackBar(R.string.title_required))
         } else {
             viewModelScope.launch {
                 repository.insertNote(
                     Note(
-                        noteTitle = title.value,
-                        noteDescription = description.value,
-                        id = noteToEdit.id,
-                        isFavourite = noteToEdit.isFavourite,
-                        creationDate = noteToEdit.creationDate
+                        noteTitle = noteTitle,
+                        noteDescription = noteDescription,
+                        id = noteToEdit.value.id,
+                        isFavourite = noteToEdit.value.isFavourite,
+                        creationDate = noteToEdit.value.creationDate
                     )
                 )
             }
